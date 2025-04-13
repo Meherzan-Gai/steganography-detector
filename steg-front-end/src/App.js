@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'; // <-- make sure useEffect is imported
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -16,32 +18,77 @@ function App() {
 
     try {
       const res = await axios.post('http://localhost:5000/predict', formData);
-      setResult(res.data.steganography_detected ? 'Steganography Detected' : 'Clean Image');
+      const resultText = res.data.steganography_detected ? 'Steganography Detected' : 'Clean Image';
+      setResult(resultText);
+      setIsSuccess(true);
     } catch (error) {
       setResult('Error occurred');
+      setIsSuccess(false);
     }
   };
 
-  // 👇 This useEffect clears result after 3 seconds
+  // clear result after 4 seconds and reset button color
   useEffect(() => {
     if (result) {
       const timer = setTimeout(() => {
         setResult(null);
-      }, 3000); // 3 seconds
-
-      // Cleanup if result changes before 5s is up
+        setIsSuccess(false);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [result]);
 
+  const resultText = result === 'Clean Image' 
+    ? <span style={{ color: '#4caf50' }}>Clean Image <span role="img" aria-label="check-mark">✔</span></span> 
+    : result === 'Steganography Detected' 
+    ? <span style={{ color: '#df0606' }}>Steganography Detected <span role="img" aria-label="exclamation">‼</span></span> 
+    : null;
+
   return (
-    <div className="App" style={{ textAlign: 'center', marginTop: '2rem' }}>
-      <h1>Steganography Detector</h1>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <br /><br />
-      <button onClick={handleSubmit}>Check Image</button>
-      <br /><br />
-      {result && <h2>{result}</h2>}
+    <div id="appContainer">
+      <div id="header">
+        <p>Upload a PNG and we'll make sure its virus-free! &#x2a;</p>
+        <p id="risks"> &#x2a; Individual results may vary. 
+          Talk to your doctor to see if steganography detector is right for you 
+        </p>
+      </div>
+      <div id="contentContainer">
+        <h1>Steganography Detector</h1>
+
+        <div id="inputRow">
+          <label htmlFor="inputButton" className={`buttons ${file ? 'fileSelected' : ''}`}>
+            Choose File
+          </label>
+
+          <input 
+            type="file" 
+            accept="image/*" 
+            onChange={handleFileChange} 
+            id="inputButton" 
+          />
+
+          {file && (
+            <p id="fileNameDisplay">Selected: {file.name}</p>
+          )}
+        </div>
+
+        <br /><br />
+        <button 
+          onClick={handleSubmit} 
+          className={`buttons ${isSuccess ? 'successState' : ''}`}
+          id="checkButton"
+        >
+          Check Image
+        </button>
+        <br /><br />
+        {result && 
+          <h2 id="resultText">
+            {resultText}
+          </h2>}
+      </div>
+      <div id="footer">
+        <p> Developed by Meherzan Gai &#x1F60E;</p>
+      </div>
     </div>
   );
 }

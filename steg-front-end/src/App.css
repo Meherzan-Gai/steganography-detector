@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+h1{
+  font-size:4rem;  
+  margin-bottom:100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#appContainer {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+  background-color: #7a0809;
+  gap:30px;
+}
+
+#contentContainer{
+  text-align: center;
+  color:#eeeeee;
+  width: 100%;
+  padding: 20px;
+}
+
+#header{
+  background-color: #4d4847;
+  color: #eeeeee;
+  height: 3vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;   
+  font-size: 1rem;
+  position: fixed;
+  top: 0;
+  width:100%;
 }
 
-.App-link {
-  color: #61dafb;
+#footer{
+  background-color: #4d4847;
+  color: #eeeeee;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;   
+  font-size: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  width:100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#risks{
+  font-size: 0.5rem;
+  text-align: right;
+  position: absolute;
+  right: 10px;  /* 10px from the right edge */
+  bottom: -8px;  /* 10px from the bottom edge */
 }
+
+
+/* Custom button styles for the file input */
+.buttons {
+  background-color: #7a0809; /* Red color */
+  border-color:#4d4847;
+  border-width:2px;
+  border-style: ridge;
+  color: #eeeeee;
+  width: 20%;
+  height: 8vh;
+  font-size: larger;
+  text-align: center;
+  line-height: 8vh;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase; /* Optional: Capitalize text */
+}
+
+.buttons:hover {
+  background-color: #df0606;
+}
+
+
+
+.fileSelected {
+  background-color: #4f7c4f; /* a nice green */
+}
+
+.fileSelected:hover {
+  background-color: #3a853a;
+}
+
+.successState {
+  background-color: #4f7c4f; /* your green */
+}
+
+.successState:hover {
+  background-color: #3a853a;
+}
+
+
+#inputButton {
+  display: none;
+}
+
+#inputRow{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing between button and file name */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+#checkButton{
+  margin-bottom: 20px;
+}
+
+#fileNameDisplay {
+  font-size: 1rem;
+  color: #eeeeee;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+
+#resultText{
+  background-color: #160404;
+  padding: 10px;
+  border-radius: 5px;
+  color: #eeeeee;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+

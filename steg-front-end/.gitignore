@@ -11,6 +11,8 @@
 # production
 /build
 
+/.detectorVenv
+
 # misc
 .DS_Store
 .env.local
