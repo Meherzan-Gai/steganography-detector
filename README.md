@@ -26,7 +26,7 @@ less noticeable difference in the file's output compared to other file formats.
 for media streaming called UDP)
 
 Let's take a look at the following image:
-![Cartoon depiction of an office. Both depictions look the same but the one on the right has an encoded message in it using steganography](./assets/image.png)
+![Cartoon depiction of an office. Both depictions look the same but the one on the right has an encoded message in it using steganography](https://www.garykessler.net/library/images/stego03.gif)
 Both cartoon depictions of an office look the same, however the one on the right
 contains a secret message that has been encoded into the image using steganography
 to alter the LSBs of the image file.
