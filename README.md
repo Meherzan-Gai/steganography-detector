@@ -39,6 +39,7 @@ you could
 indeed have your own secret way of communicating with your besties using this
 (and it would be far superior to whatever Greg and Rowley were trying to use here)
 ![Greg Heffley and Rowley Jefferson using their "secret coded language" to talk smack about Rowley's dad "behind his back"](./assets/image-2.png)
+
 but this idea can also be used for some not so great stuff :\(
 
 
