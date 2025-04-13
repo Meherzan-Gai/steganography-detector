@@ -77,7 +77,7 @@ person in their contact list. Now I've just leaked my IP address as well as ever
 (At least if we go down, we all go down together)
 ![alt text](./assets/image-3.png)
 
-Jokes aside, it is for this reason that steganography is so dangerous.
+Jokes (and yearbook memes) aside, it is for this reason that steganography is so dangerous.
 Viruses could spreading from computer to computer, meme to meme, across the internet and we would have no way of knowing.
 
 In fact, this is why cybersecurity experts have a hard time quantifying the number
